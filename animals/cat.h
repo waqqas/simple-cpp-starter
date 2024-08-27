@@ -3,20 +3,21 @@
 
 namespace Animal
 {
-    namespace Mammal
+    class Cat
     {
-        class Cat
-        {
-        public:
-            Cat();  // Constructor
-            ~Cat(); // Destructor
+    public:
+        Cat();  // Constructor
+        ~Cat(); // Destructor
 
-            void meow(); // Member function
+        void meow() const;         // Member function
+        void set_age(int new_age); // Member function
+        int get_age() const;       // Member function
 
-        private:
-            // Private members (if any)
-        };
-    }
+    private:
+        // Private members (if any)
+        int age;
+    };
+
 }
 
 #endif

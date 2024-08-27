@@ -1,6 +1,7 @@
+#include <iostream>
 #include "cat.h"
 
-using namespace Animal::Mammal;
+using namespace Animal;
 
 int main()
 {
@@ -9,6 +10,8 @@ int main()
 
     // Call member functions on the Cat object
     myCat.meow();
+
+    std::cout << "Age: " << myCat.get_age() << std::endl;
 
     return 0;
 }

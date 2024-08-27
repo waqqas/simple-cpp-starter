@@ -1,9 +1,9 @@
 #include <iostream>
 #include "cat.h"
 
-namespace Animal::Mammal
+namespace Animal
 {
-    Cat::Cat()
+    Cat::Cat() : age{2}
     {
         // Implementation of constructor
     }
@@ -12,8 +12,16 @@ namespace Animal::Mammal
     {
         // Implementation of destructor
     }
-    void Cat::meow()
+    void Cat::meow() const
     {
         std::cout << "Meow!" << std::endl;
     }
-} // namespace Animal::Mammal
+    void Cat::set_age(int new_age)
+    {
+        age = new_age;
+    }
+    int Cat::get_age() const
+    {
+        return age;
+    }
+} // namespace Animal
