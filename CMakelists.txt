@@ -1,7 +1,20 @@
 cmake_minimum_required(VERSION 3.10)
 
+# Set the C++ standard to C++11
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # Set the project name
 project(HelloWorld)
 
 # Add the executable
 add_executable(hello_world hello_world.cpp)
+
+include(animals/CMakelists.txt)
+
+# Add the source file for class1.cpp
+add_executable(class1 class1.cpp)
+
+# Link the cat library with class1 executable
+target_link_libraries(class1 cat)
+
