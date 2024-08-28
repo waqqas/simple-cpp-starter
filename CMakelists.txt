@@ -5,3 +5,8 @@ project(HelloWorld)
 
 # Add the executable
 add_executable(hello_world hello_world.cpp)
+
+
+# Include exercise_1 directory
+add_subdirectory(exercise_1)
+
