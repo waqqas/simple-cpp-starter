@@ -30,7 +30,7 @@ public:
         strncpy(this->number_plate, new_number_plate, sizeof(this->number_plate) - 1);
     }
 
-    char *get_number_plate()
+    const char *get_number_plate() const
     {
         return number_plate;
     }
