@@ -25,3 +25,18 @@ public:
 
 
 Classes provide a way to implement object-oriented programming principles such as encapsulation, inheritance, and polymorphism in C++.
+
+
+
+| Feature | Structure in C | Class in C++ |
+|---------|----------------|--------------|
+| Default access | Public | Private |
+| Inheritance | Not supported | Supported |
+| Member functions | Not supported | Supported |
+| Constructors/Destructors | Not available | Available |
+| Access specifiers | Not available | Available (public, private, protected) |
+| Data abstraction | Limited | Strong |
+| Memory allocation | Stack (by default) | Stack or heap |
+| Polymorphism | Not supported | Supported |
+| Operator overloading | Not supported | Supported |
+| Template | Not supported | Supported |

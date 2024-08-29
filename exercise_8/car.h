@@ -17,7 +17,9 @@ public:
     Car(const char *new_number_plate)
     {
         std::cout << "2 Car constructor called: " << std::endl;
-        strncpy(this->number_plate, new_number_plate, sizeof(this->number_plate) - 1);
+        strncpy(number_plate, new_number_plate, sizeof(number_plate) - 1);
+        // strncpy(new_number_plate, "abc", sizeof(new_number_plate) - 1);
+        // new_number_plate = nullptr;
     }
 
     ~Car()
@@ -25,7 +27,7 @@ public:
         std::cout << "Car destructor called: " << std::endl;
     }
 
-    void set_number_plate(char *new_number_plate)
+    void set_number_plate(const char *new_number_plate)
     {
         strncpy(this->number_plate, new_number_plate, sizeof(this->number_plate) - 1);
     }
