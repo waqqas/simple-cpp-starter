@@ -7,7 +7,7 @@ int main()
 
     const char *number_plate = "ABC123";
 
-    Car *car1 = new Car(number_plate);
+    Car *car1 = new Car{number_plate};
 
     std::cout << "Number plate: " << car1->get_number_plate() << std::endl;
 

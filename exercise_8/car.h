@@ -7,6 +7,7 @@ class Car
 {
 private:
     char number_plate[20];
+    static int counter;
 
 public:
     Car() : Car("")
@@ -17,7 +18,8 @@ public:
     Car(const char *new_number_plate)
     {
         std::cout << "2 Car constructor called: " << std::endl;
-        strncpy(number_plate, new_number_plate, sizeof(number_plate) - 1);
+        snprintf(number_plate, sizeof(number_plate) - 1, "%s:%d", new_number_plate, counter);
+        counter++;
         // strncpy(new_number_plate, "abc", sizeof(new_number_plate) - 1);
         // new_number_plate = nullptr;
     }
