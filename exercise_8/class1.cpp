@@ -9,7 +9,7 @@ int main()
 
     Car car1;
 
-    car1.set_number_plate(number_plate);
+    // car1.set_number_plate(number_plate);
     std::cout << "Number plate: " << car1.get_number_plate() << std::endl;
 
     std::cout << "main() ends" << std::endl;
