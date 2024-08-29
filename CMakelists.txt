@@ -9,4 +9,5 @@ add_executable(hello_world hello_world.cpp)
 
 add_subdirectory(exercise_1)
 add_subdirectory(exercise_2)
+add_subdirectory(exercise_3)
 
