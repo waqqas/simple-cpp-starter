@@ -36,3 +36,59 @@ int main() {
 In this example, the compiler may eliminate the copy operations when creating and returning the `MyClass` object, potentially outputting only "Constructor" once.
 
 Copy elision is a powerful optimization technique that helps write more efficient C++ code without sacrificing readability or expressiveness.
+
+
+## Copy and Move Assignment Operators
+
+In addition to copy elision, C++ provides copy and move assignment operators for efficient object manipulation. These operators are crucial for managing resources and optimizing performance.
+
+### Copy Assignment Operator
+
+The copy assignment operator `operator=` is used to copy the contents of one object to another existing object of the same class.
+
+Key points:
+1. Signature: `MyClass& operator=(const MyClass& other)`
+2. Creates a deep copy of the source object
+3. Handles self-assignment
+4. Returns a reference to the current object
+
+Example:
+
+
+class MyClass {
+public:
+    MyClass& operator=(const MyClass& other) {
+        if (this != &other) {
+            // Perform deep copy
+        }
+        return *this;
+    }
+};
+
+
+### Move Assignment Operator
+
+The move assignment operator `operator=` is used to transfer ownership of resources from one object to another, typically with rvalue references.
+
+Key points:
+1. Signature: `MyClass& operator=(MyClass&& other) noexcept`
+2. Efficiently transfers resources instead of copying
+3. Leaves the source object in a valid but unspecified state
+4. Often implemented as a "steal" operation
+
+Example:
+
+
+class MyClass {
+public:
+    MyClass& operator=(MyClass&& other) noexcept {
+        if (this != &other) {
+            // Transfer ownership of resources
+            // Reset other's resources
+        }
+        return *this;
+    }
+};
+
+
+Both assignment operators are essential for writing efficient and resource-safe C++ code, complementing the optimization techniques like copy elision.
