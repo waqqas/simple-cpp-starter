@@ -3,6 +3,13 @@ cmake_minimum_required(VERSION 3.10)
 # Set the project name
 project(HelloWorld)
 
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+
 # Add the executable
 add_executable(hello_world hello_world.cpp)
 
@@ -16,3 +23,4 @@ add_subdirectory(exercise_6)
 add_subdirectory(exercise_7)
 add_subdirectory(exercise_8)
 add_subdirectory(exercise_9)
+add_subdirectory(exercise_10)
