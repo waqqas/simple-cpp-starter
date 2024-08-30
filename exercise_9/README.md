@@ -264,3 +264,55 @@ Key points about copy constructors:
    - Use the `const` reference parameter to prevent modification of the source object.
 
 Understanding and properly implementing copy constructors is crucial for managing object lifecycles and preventing issues related to resource management in C++ programs.
+
+Move Constructor
+
+1. Syntax:
+   ClassName(ClassName&& other) noexcept;
+
+2. Purpose:
+   - Creates a new object by transferring ownership of resources from an existing object.
+   - Efficiently moves resources instead of copying them.
+
+3. When it's called:
+   - When an object is initialized with an rvalue (temporary object) of the same class.
+   - When std::move() is used to cast an object to an rvalue reference.
+
+4. Example:
+
+   class MyClass {
+   private:
+       int* data;
+   public:
+       // Constructor
+       MyClass(int value) : data(new int(value)) {}
+       
+       // Move constructor
+       MyClass(MyClass&& other) noexcept : data(other.data) {
+           other.data = nullptr;
+           std::cout << "Move constructor called" << std::endl;
+       }
+       
+       // Destructor
+       ~MyClass() { delete data; }
+   };
+
+   // Usage
+   MyClass obj1(5);
+   MyClass obj2 = std::move(obj1);  // Move constructor called
+
+5. Importance:
+   - Improves performance by avoiding unnecessary copying of resources.
+   - Enables efficient transfer of ownership for objects managing unique resources.
+
+6. Default behavior:
+   - If not explicitly defined, the compiler may generate a default move constructor.
+   - The default version performs a member-wise move, which may not be suitable for classes with pointers or dynamically allocated resources.
+
+7. Best practices:
+   - Implement a move constructor for classes that manage resources to enable efficient moves.
+   - Mark move constructors as noexcept to enable optimizations and provide strong exception guarantees.
+   - Ensure the moved-from object is left in a valid but unspecified state.
+   - Consider the Rule of Five: If you implement a move constructor, you should also implement a move assignment operator, copy constructor, copy assignment operator, and destructor.
+
+Understanding and properly implementing move constructors is essential for writing efficient C++ code, especially when dealing with resource management and performance-critical applications.

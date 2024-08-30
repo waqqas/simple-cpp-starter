@@ -28,6 +28,15 @@ public:
         set_number_plate(other.number_plate);
     }
 
+    Car(Car &&other) noexcept
+    {
+        std::cout << "Move constructor called: " << std::endl;
+        number_plate = std::move(other.number_plate);
+        other.number_plate = nullptr;
+    }
+
+    // Car(Car &&other) noexcept = default;
+
     ~Car()
     {
         std::cout << "Car destructor called: " << std::endl;
