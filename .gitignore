@@ -16,7 +16,6 @@
 /lib/
 
 # IDE and editor files
-.vscode/
 .idea/
 *.suo
 *.user
