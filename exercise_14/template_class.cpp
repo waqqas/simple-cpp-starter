@@ -2,14 +2,20 @@
 #include "garage.h"
 #include "car.h"
 #include "truck.h"
+#include "motorcycle.h"
 
-typedef Garage<Car> CarGarage;
-typedef Garage<Truck> TruckGarage;
+typedef Garage<Car, 5> CarGarage;
+typedef Garage<Truck, 10> TruckGarage;
+typedef Garage<Motorcycle, 15> MotorcycleGarage;
+typedef Garage<Vehicle, 20> VehicleGarage;
 
 int main()
 {
-    CarGarage garage{5};
-    TruckGarage big_truck_garage{10};
+    CarGarage car_garage;
+    TruckGarage big_truck_garage;
+    VehicleGarage vehicle_garage;
+
+    car_garage.add_vehicle(Car());
 
     return 0;
 }

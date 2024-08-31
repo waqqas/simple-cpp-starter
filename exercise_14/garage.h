@@ -1,76 +1,15 @@
 #include <iostream>
 
-template <typename T>
+template <typename T, int SIZE>
 class Garage
 {
 private:
-    T *vehicles;
-    int capacity;
-    int count;
+    T *vehicles[SIZE] = {nullptr};
+    int capacity = SIZE;
+    int count = 0;
 
 public:
-    Garage(int size = 10) : capacity(size), count(0)
-    {
-        vehicles = new T[capacity];
-    }
-
-    // Copy constructor
-    Garage(const Garage &other) : capacity(other.capacity), count(other.count)
-    {
-        vehicles = new T[capacity];
-        for (int i = 0; i < count; ++i)
-        {
-            vehicles[i] = other.vehicles[i];
-        }
-    }
-
-    // Move constructor
-    Garage(Garage &&other) noexcept : vehicles(other.vehicles), capacity(other.capacity), count(other.count)
-    {
-        other.vehicles = nullptr;
-        other.capacity = 0;
-        other.count = 0;
-    }
-
-    // Copy assignment operator
-    Garage &operator=(const Garage &other)
-    {
-        if (this != &other)
-        {
-            delete[] vehicles;
-            capacity = other.capacity;
-            count = other.count;
-            vehicles = new T[capacity];
-            for (int i = 0; i < count; ++i)
-            {
-                vehicles[i] = other.vehicles[i];
-            }
-        }
-        return *this;
-    }
-
-    // Move assignment operator
-    Garage &operator=(Garage &&other) noexcept
-    {
-        if (this != &other)
-        {
-            delete[] vehicles;
-            vehicles = other.vehicles;
-            capacity = other.capacity;
-            count = other.count;
-            other.vehicles = nullptr;
-            other.capacity = 0;
-            other.count = 0;
-        }
-        return *this;
-    }
-
-    ~Garage()
-    {
-        delete[] vehicles;
-    }
-
-    void addVehicle(const T &vehicle)
+    void add_vehicle(const T &vehicle)
     {
         if (count < capacity)
         {
@@ -82,7 +21,7 @@ public:
         }
     }
 
-    void removeVehicle()
+    void remove_vehicle()
     {
         if (count > 0)
         {
@@ -94,7 +33,7 @@ public:
         }
     }
 
-    void displayVehicles() const
+    void display_vehicles() const
     {
         if (count == 0)
         {
@@ -110,7 +49,7 @@ public:
         }
     }
 
-    int getCount() const
+    int get_count() const
     {
         return count;
     }
