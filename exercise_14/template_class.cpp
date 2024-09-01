@@ -15,7 +15,5 @@ int main()
     TruckGarage big_truck_garage;
     VehicleGarage vehicle_garage;
 
-    car_garage.add_vehicle(Car());
-
     return 0;
 }

@@ -3,7 +3,7 @@
 // Define an enum class for days of the week
 enum class Days
 {
-    MONDAY,
+    MONDAY = 10,
     TUESDAY,
     WEDNESDAY,
     THURSDAY,
@@ -21,7 +21,7 @@ int main()
     today = Days::WEDNESDAY;
 
     // Print the value of the variable
-    std::cout << "Today is day number " << static_cast<int>(today) << std::endl;
+    std::cout << "Today is: " << (int)today << std::endl;
 
     return 0;
 }
