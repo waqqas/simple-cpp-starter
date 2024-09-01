@@ -44,6 +44,20 @@ std::cout << multiply(5); // Outputs: 50
 
 4. Lambda with mutable keyword:
 
+The `mutable` keyword in lambda expressions allows you to modify captured variables within the lambda body, even if they were captured by value. By default, variables captured by value are const inside the lambda. Using `mutable` removes this const-ness.
+
+Example:
+
+auto counter = [count = 0]() mutable {
+    return ++count;
+};
+
+std::cout << counter() << std::endl; // Outputs: 1
+std::cout << counter() << std::endl; // Outputs: 2
+
+In this example, `count` is captured by value and initialized to 0. The `mutable` keyword allows us to modify `count` within the lambda body, incrementing it each time the lambda is called.
+
+Example:
 
 int x = 10;
 auto increment = [x]() mutable { return ++x; };
