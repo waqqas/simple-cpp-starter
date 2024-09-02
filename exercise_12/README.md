@@ -109,3 +109,47 @@ The control block is an internal data structure used by `std::shared_ptr` to man
 
 The control block is an essential component that enables the sophisticated memory management capabilities of `std::shared_ptr`, ensuring safe and efficient shared ownership of dynamically allocated objects in C++.
 
+
+
+## Sharing std::weak_ptr
+
+`std::weak_ptr` is a smart pointer that holds a non-owning ("weak") reference to an object that is managed by `std::shared_ptr`. Here's how to share and use `weak_ptr`:
+
+1. Create a `shared_ptr`:
+
+auto sharedPtr = std::make_shared<MyClass>(10, 3.14);
+
+
+2. Create a `weak_ptr` from the `shared_ptr`:
+
+std::weak_ptr<MyClass> weakPtr = sharedPtr;
+
+
+3. To use the object pointed to by `weak_ptr`, create a temporary `shared_ptr`:
+
+if (auto tempShared = weakPtr.lock()) {
+    // Use tempShared as a regular shared_ptr
+    // The object is guaranteed to exist in this scope
+} else {
+    // The original object has been deleted
+}
+
+
+4. Check if `weak_ptr` is expired:
+
+if (weakPtr.expired()) {
+    std::cout << "The object no longer exists." << std::endl;
+}
+
+
+5. Get the use count (number of `shared_ptr` instances):
+
+std::cout << "Use count: " << weakPtr.use_count() << std::endl;
+
+
+### Benefits of using weak_ptr:
+- Breaks circular references that can occur with `shared_ptr`.
+- Allows temporary access to a shared object without extending its lifetime.
+- Provides a way to check if an object still exists without affecting its reference count.
+
+`std::weak_ptr` is useful in scenarios where you need to observe an object but don't want to influence its lifetime, such as caching, observer patterns, or breaking cyclic dependencies in data structures.
