@@ -47,40 +47,41 @@ std::cout << multiply(5); // Outputs: 50
 The `mutable` keyword in lambda expressions allows you to modify captured variables within the lambda body, even if they were captured by value. By default, variables captured by value are const inside the lambda. Using `mutable` removes this const-ness.
 
 Example:
-
+```
 auto counter = [count = 0]() mutable {
     return ++count;
 };
 
 std::cout << counter() << std::endl; // Outputs: 1
 std::cout << counter() << std::endl; // Outputs: 2
+```
 
 In this example, `count` is captured by value and initialized to 0. The `mutable` keyword allows us to modify `count` within the lambda body, incrementing it each time the lambda is called.
 
 Example:
-
+```
 int x = 10;
 auto increment = [x]() mutable { return ++x; };
 std::cout << increment(); // Outputs: 11
 std::cout << x; // Outputs: 10 (original x is unchanged)
-
+```
 
 5. Lambda with generic parameters (C++14):
 
-
+```
 auto print = [](auto x) { std::cout << x << std::endl; };
 print(42);    // Outputs: 42
 print("Hello"); // Outputs: Hello
-
+```
 
 Lambda expressions are particularly useful in combination with algorithms from the Standard Template Library (STL). They provide a convenient way to customize the behavior of these algorithms without writing separate named functions.
 
-
+```
 std::vector<int> numbers = {1, 2, 3, 4, 5};
 std::for_each(numbers.begin(), numbers.end(), [](int n) {
     std::cout << n * n << " ";
 });
 // Outputs: 1 4 9 16 25
-
+```
 
 Lambda expressions in C++ offer a powerful and flexible way to write inline functions, making your code more readable and maintainable.

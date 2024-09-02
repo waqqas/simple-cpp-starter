@@ -11,7 +11,7 @@ A functor, also known as a function object, is a class or struct that overloads 
 
 ## Example of a simple functor:
 
-
+```
 class Multiplier {
 private:
     int factor;
@@ -27,21 +27,21 @@ public:
 // Usage
 Multiplier times3(3);
 int result = times3(5); // result is 15
-
+```
 
 ## Uses of functors in C++:
 
 1. **Customizing standard algorithms**: Functors can be used to provide custom behavior to standard algorithms.
 
-   
+```   
    std::vector<int> numbers = {1, 2, 3, 4, 5};
    std::transform(numbers.begin(), numbers.end(), numbers.begin(), Multiplier(2));
    // numbers is now {2, 4, 6, 8, 10}
-   
+```   
 
 2. **Maintaining state**: Functors can store data and maintain state between calls.
 
-   
+```
    class Counter {
    private:
        int count = 0;
@@ -54,10 +54,11 @@ int result = times3(5); // result is 15
    Counter c;
    std::cout << c() << std::endl; // Outputs: 1
    std::cout << c() << std::endl; // Outputs: 2
-   
+```   
 
 3. **Callback mechanisms**: Functors can be used as callbacks in event-driven programming.
 
+```
    class ButtonClickHandler {
    public:
        void operator()(const std::string& buttonName) {
@@ -69,9 +70,10 @@ int result = times3(5); // result is 15
    ButtonClickHandler clickHandler;
    button.setOnClickListener(clickHandler);
    // When the button is clicked, it will call clickHandler("ButtonName")
-
+```
 4. **Policy-based design**: Functors can be used to implement policies in template-based designs.
 
+```
    template<typename SortPolicy>
    class Sorter {
    public:
@@ -108,11 +110,13 @@ int result = times3(5); // result is 15
    numbers = {5, 2, 8, 1, 9};
    Sorter<QuickSortPolicy> quickSorter;
    quickSorter.sort(numbers);
+```
+
 5. **Lambda expressions**: In modern C++, lambda expressions provide a concise way to create functors inline.
 
-   
+```   
    auto multiplier = [factor = 3](int x) { return x * factor; };
    std::cout << multiplier(5) << std::endl; // Outputs: 15
-   
+```   
 
 Functors provide a powerful and flexible way to customize behavior in C++ programs, especially when working with generic algorithms and containers.

@@ -11,7 +11,7 @@ Exception handling in C++ provides a way to deal with runtime errors or exceptio
 
 ## Basic Syntax
 
-
+```
 try {
     // Code that may throw an exception
     // ...
@@ -27,7 +27,7 @@ catch (...) {
     // Catch-all handler for any other exceptions
     std::cerr << "Caught unknown exception" << std::endl;
 }
-
+```
 
 ## Explanation
 
@@ -46,7 +46,7 @@ catch (...) {
 
 ## Example
 
-
+```
 #include <iostream>
 #include <stdexcept>
 
@@ -67,7 +67,7 @@ int main() {
     }
     return 0;
 }
-
+```
 
 In this example, the `divide` function throws a `std::runtime_error` if division by zero is attempted. The `main` function uses a try-catch block to handle this exception and print an error message.
 
@@ -80,7 +80,7 @@ To create custom exceptions in C++, you can define your own exception classes th
 
 1. **Define a custom exception class**:
 
-
+```
 #include <exception>
 #include <string>
 
@@ -95,21 +95,21 @@ public:
         return message.c_str();
     }
 };
-
+```
 
 2. **Throw the custom exception**:
 
-
+```
 void riskyFunction(int value) {
     if (value < 0) {
         throw CustomException("Negative value not allowed");
     }
     // Rest of the function...
 }
-
+```
 
 3. **Handle the custom exception**:
-
+```
 
 #include <iostream>
 
@@ -129,7 +129,7 @@ int main() {
 
     return 0;
 }
-
+```
 
 This example demonstrates:
 - Creating a custom exception class `CustomException` derived from `std::exception`.
