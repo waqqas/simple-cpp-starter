@@ -15,7 +15,7 @@ There are two main types of polymorphism in C++:
 
 ## Example of Runtime Polymorphism
 
-
+```
 class Shape {
 public:
     virtual void draw() {
@@ -49,7 +49,7 @@ int main() {
 
     return 0;
 }
-
+```
 
 In this example, `Shape` is the base class with a virtual function `draw()`. `Circle` and `Square` are derived classes that override the `draw()` function. The program demonstrates how a base class pointer can be used to call the appropriate derived class method at runtime.
 

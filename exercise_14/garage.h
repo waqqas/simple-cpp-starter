@@ -1,15 +1,16 @@
 #include <iostream>
+#include <memory>
 
 template <typename T, int SIZE>
 class Garage
 {
 private:
-    T *vehicles[SIZE] = {nullptr};
+    T *vehicles[SIZE];
     int capacity = SIZE;
     int count = 0;
 
 public:
-    void add_vehicle(const T &vehicle)
+    void add_vehicle(T *vehicle)
     {
         if (count < capacity)
         {

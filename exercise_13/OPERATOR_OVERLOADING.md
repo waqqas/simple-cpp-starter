@@ -22,7 +22,7 @@ Where:
 
 ### Overloading the Addition Operator (+)
 
-
+```
 class Complex {
 private:
     double real;
@@ -35,11 +35,11 @@ public:
         return Complex(real + other.real, imag + other.imag);
     }
 };
-
+```
 
 ### Overloading the Stream Insertion Operator (<<)
 
-
+```
 class Person {
 private:
     std::string name;
@@ -53,7 +53,7 @@ public:
         return os;
     }
 };
-
+```
 
 ## Guidelines for Operator Overloading
 
