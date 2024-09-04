@@ -61,3 +61,39 @@ int main() {
 
 
 This will output: 1 2 3 4 5
+
+
+6. Memory allocation:
+   - Vectors allocate memory dynamically on the heap
+   - Initial allocation: Small initial capacity (implementation-defined)
+   - Growth strategy: When capacity is exceeded, typically:
+     1. Allocate new, larger memory block (often 1.5x or 2x current capacity)
+     2. Copy/move existing elements to new block
+     3. Deallocate old memory block
+   - Amortized constant time complexity for push_back()
+   - Manual control:
+     - `reserve(size_t n)`: Pre-allocate memory for efficiency
+     - `shrink_to_fit()`: Release unused capacity
+
+Example of growth:
+
+
+#include <vector>
+#include <iostream>
+
+int main() {
+    std::vector<int> vec;
+    std::cout << "Initial capacity: " << vec.capacity() << std::endl;
+
+    for (int i = 0; i < 100; ++i) {
+        vec.push_back(i);
+        if (vec.size() == vec.capacity()) {
+            std::cout << "Capacity increased to: " << vec.capacity() << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+
+This demonstrates how the vector's capacity grows as elements are added.

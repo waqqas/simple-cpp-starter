@@ -47,7 +47,16 @@
         "typeinfo": "cpp",
         "cinttypes": "cpp",
         "list": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "ctime": "cpp",
+        "ratio": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "stop_token": "cpp"
     },
     "C_Cpp.default.cppStandard": "c++11"
 }

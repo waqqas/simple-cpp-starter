@@ -143,3 +143,46 @@ int main() {
 
 
 These examples demonstrate how STL algorithms can be used with different containers (in this case, vectors) and how they separate the algorithm logic from the container implementation. This separation allows for more flexible and reusable code.
+
+
+### Types of STL Algorithms
+
+STL algorithms can be broadly categorized into the following types:
+
+1. Non-modifying sequence operations
+   - Examples: std::find, std::count, std::search
+
+2. Modifying sequence operations
+   - Examples: std::copy, std::move, std::transform
+
+3. Partitioning operations
+   - Examples: std::partition, std::stable_partition
+
+4. Sorting operations
+   - Examples: std::sort, std::partial_sort, std::nth_element
+
+5. Binary search operations (on sorted ranges)
+   - Examples: std::binary_search, std::lower_bound, std::upper_bound
+
+6. Set operations (on sorted ranges)
+   - Examples: std::set_union, std::set_intersection, std::set_difference
+
+7. Heap operations
+   - Examples: std::make_heap, std::push_heap, std::pop_heap
+
+8. Minimum/maximum operations
+   - Examples: std::min, std::max, std::minmax
+
+9. Comparison operations
+   - Examples: std::equal, std::lexicographical_compare
+
+10. Permutation operations
+    - Examples: std::next_permutation, std::prev_permutation
+
+11. Numeric operations
+    - Examples: std::iota, std::accumulate, std::inner_product
+
+12. Operations on uninitialized memory
+    - Examples: std::uninitialized_copy, std::uninitialized_fill
+
+These categories cover a wide range of operations that can be performed on containers and other sequences of elements, providing efficient and generic implementations for common programming tasks.
