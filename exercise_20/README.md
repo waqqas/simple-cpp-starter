@@ -138,3 +138,38 @@ This example demonstrates:
 - Handling the custom exception in a try-catch block, along with standard exceptions and a catch-all handler.
 
 By creating custom exceptions, you can provide more specific error information and handle different error scenarios in a more granular way.
+
+
+
+The `explicit` keyword in C++ is used in constructor declarations to prevent implicit type conversions. When a constructor is marked as `explicit`, it cannot be used for implicit conversions and copy-initialization.
+
+Here's an example to illustrate the use of `explicit`:
+
+
+class MyClass {
+public:
+    explicit MyClass(int x) : value(x) {}
+    int getValue() const { return value; }
+private:
+    int value;
+};
+
+int main() {
+    MyClass obj1(10);  // Direct initialization, OK
+    MyClass obj2 = 20; // Copy initialization, Error: explicit constructor
+    MyClass obj3 = MyClass(30); // OK, direct initialization
+
+    // Error: no implicit conversion
+    // void takeMyClass(MyClass mc);
+    // takeMyClass(40);
+
+    return 0;
+}
+
+
+Benefits of using `explicit`:
+1. Prevents unintended implicit conversions
+2. Makes the code more readable and less prone to errors
+3. Enforces stricter type checking
+
+Use `explicit` when you want to ensure that objects of your class are created only through direct initialization or explicit type conversion.
